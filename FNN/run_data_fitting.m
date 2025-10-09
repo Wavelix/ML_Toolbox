@@ -2,7 +2,7 @@ clear; close all; clc;
 
 num_samples = 400;
 X = linspace(-5, 5, num_samples)';
-y = sin(2*X) + 0.5 * randn(num_samples, 1);
+y = sin(2*X) + 0.2 * randn(num_samples, 1);
 
 cv = cvpartition(num_samples, 'HoldOut', 0.2);
 train_idx = training(cv);
