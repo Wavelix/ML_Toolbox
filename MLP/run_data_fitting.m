@@ -13,19 +13,19 @@ y_train = y(train_idx, :);
 X_test = X(test_idx, :);
 y_test = y(test_idx, :);
 
-lr = 0.005;
+lr = 0.01;
 epochs = 2000;
 batch_size = 16;
 k_folds = 5;
 
-structure = [size(X_train, 2), 40, 40, size(y_train, 2)];
-activations = {'relu', 'relu', 'none'}; 
+structure = [size(X_train, 2), 20, 20, size(y_train, 2)];
+activations = {'tanh', 'tanh', 'none'}; 
 
-fprintf('--- run FNN for data fitting ---\n');
+fprintf('--- run MLP for data fitting ---\n');
 fprintf('Network structure: %s\n', mat2str(structure));
 
 tic;
-[params, train_losses, val_losses] = fnn(X_train, y_train, lr, epochs, batch_size, structure, activations, k_folds);
+[params, train_losses, val_losses] = mlp(X_train, y_train, lr, epochs, batch_size, structure, activations, k_folds);
 toc;
 fprintf('Training finishid\n');
 
@@ -51,7 +51,7 @@ if structure(1) == 1
     hold on;
     scatter(X_test, y_test, 40, 'r', 'x', 'LineWidth', 2, 'DisplayName', 'Test data');
     
-    plot(X_full_range, y_pred, 'k-', 'LineWidth', 3, 'DisplayName', 'FNN 拟合曲线');
+    plot(X_full_range, y_pred, 'k-', 'LineWidth', 3, 'DisplayName', 'MLP 拟合曲线');
     
     title('Data Fitting Result');
     xlabel('Feature X');

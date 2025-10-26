@@ -28,18 +28,18 @@ y_test = y(test_idx, :);
 y_test_labels = y_labels(test_idx);
 
 lr = 0.05;
-epochs = 500;
+epochs = 1000;
 batch_size = 32;
 k_folds = 5;
 
 structure = [size(X_train, 2), 10, size(y_train, 2)];
 activations = {'relu', 'softmax'}; 
 
-fprintf('--- run FNN for classification ---\n');
+fprintf('--- run MLP for classification ---\n');
 fprintf('Network structure: %s\n', mat2str(structure));
 
 tic;
-[params, train_losses, val_losses] = fnn(X_train, y_train, lr, epochs, batch_size, structure, activations, k_folds);
+[params, train_losses, val_losses] = mlp(X_train, y_train, lr, epochs, batch_size, structure, activations, k_folds);
 toc;
 fprintf('Training finished\n');
 

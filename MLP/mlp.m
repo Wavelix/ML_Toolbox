@@ -1,4 +1,4 @@
-function [params, train_losses, val_losses] = fnn(X, y, lr, epochs, batch_size, structure, activations, k_folds)
+function [params, train_losses, val_losses] = mlp(X, y, lr, epochs, batch_size, structure, activations, k_folds)
 %   输入参数：
 %       X: 特征矩阵 (m x n_input)
 %       y: 标签矩阵 (m x n_output)

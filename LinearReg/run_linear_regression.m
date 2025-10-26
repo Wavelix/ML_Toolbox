@@ -10,8 +10,8 @@ y = 1 + X * w + randn(num_samples, 1);
 
 % X = [ones(m, 1), X_data]; 
 
-lr = 0.00001;      
-epochs = 100000;
+lr = 0.0001;      
+epochs = 10000;
 
 % BGD
 fprintf('--- 运行 BGD ---\n');
@@ -35,8 +35,8 @@ fprintf('MBGD 耗时: %f 秒\n', t_mbgd);
 fprintf('\n');
 
 % SGD
-lr = 0.00001;
-epochs = 100000;
+lr = 0.0001;
+epochs = 10000;
 fprintf('--- 运行 SGD ---\n');
 tic;
 [theta_sgd, loss_sgd] = linearReg(X, y, lr, epochs, 'SGD', 1);
